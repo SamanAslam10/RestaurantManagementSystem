@@ -10,22 +10,22 @@ namespace v._3._0.Customer
     {
         public int Id { get; set; }
         public string name { get; set; }
-        public string phoneNumber {  get; set; }
-        public int age {  get; set; }
-        public string address {  get; set; }
+        public string contact {  get; set; }
+        public string CNIC {  get; set; }
+        public string email {  get; set; }
 
         public CustomerModel() { }
-        public CustomerModel(int id,string name, string phoneNumber, int age, string address)
+        public CustomerModel(int id,string name, string contact, string CNIC, string email)
         {
             this.Id = id;
             this.name = name;
-            this.phoneNumber = phoneNumber;
-            this.age = age;
-            this.address = address;
+            this.contact = contact;
+            this.CNIC = CNIC;
+            this.email = email;
         }
         public override string ToString()
         {
-            return $"ID : {Id} ,Name : {name}, Contact : {phoneNumber}, Age : {age}, Address : {address}";
+            return $"ID : {Id} ,Name : {name}, Contact : {contact}, CNIC : {CNIC}, Email : {email}";
         }
     }
 }

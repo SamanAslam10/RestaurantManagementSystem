@@ -30,9 +30,9 @@
         {
             Title = new TextBox();
             CustomerName = new Label();
-            Address = new Label();
+            Email = new Label();
+            CNIC = new Label();
             Contact = new Label();
-            Age = new Label();
             ageText = new TextBox();
             ContactText = new TextBox();
             AddressText = new TextBox();
@@ -76,17 +76,29 @@
             CustomerName.Text = "  Name ";
             CustomerName.Click += CustomerName_Click;
             // 
-            // Address
+            // Email
             // 
-            Address.AutoSize = true;
-            Address.BackColor = Color.PaleVioletRed;
-            Address.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            Address.ForeColor = Color.MistyRose;
-            Address.Location = new Point(37, 467);
-            Address.Name = "Address";
-            Address.Size = new Size(115, 32);
-            Address.TabIndex = 4;
-            Address.Text = "Address";
+            Email.AutoSize = true;
+            Email.BackColor = Color.PaleVioletRed;
+            Email.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            Email.ForeColor = Color.MistyRose;
+            Email.Location = new Point(37, 467);
+            Email.Name = "Email";
+            Email.Size = new Size(103, 32);
+            Email.TabIndex = 4;
+            Email.Text = " Email ";
+            // 
+            // CNIC
+            // 
+            CNIC.AutoSize = true;
+            CNIC.BackColor = Color.PaleVioletRed;
+            CNIC.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            CNIC.ForeColor = Color.MistyRose;
+            CNIC.Location = new Point(34, 404);
+            CNIC.Name = "CNIC";
+            CNIC.Size = new Size(110, 32);
+            CNIC.TabIndex = 5;
+            CNIC.Text = "  CNIC  ";
             // 
             // Contact
             // 
@@ -94,23 +106,11 @@
             Contact.BackColor = Color.PaleVioletRed;
             Contact.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
             Contact.ForeColor = Color.MistyRose;
-            Contact.Location = new Point(34, 404);
+            Contact.Location = new Point(36, 347);
             Contact.Name = "Contact";
-            Contact.Size = new Size(113, 32);
-            Contact.TabIndex = 5;
-            Contact.Text = "Contact";
-            // 
-            // Age
-            // 
-            Age.AutoSize = true;
-            Age.BackColor = Color.PaleVioletRed;
-            Age.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            Age.ForeColor = Color.MistyRose;
-            Age.Location = new Point(36, 347);
-            Age.Name = "Age";
-            Age.Size = new Size(111, 32);
-            Age.TabIndex = 6;
-            Age.Text = "  Age     ";
+            Contact.Size = new Size(120, 32);
+            Contact.TabIndex = 6;
+            Contact.Text = "Contact ";
             // 
             // ageText
             // 
@@ -275,7 +275,7 @@
             // 
             // Column3
             // 
-            Column3.HeaderText = "Age";
+            Column3.HeaderText = "Contact";
             Column3.MinimumWidth = 8;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
@@ -283,7 +283,7 @@
             // 
             // Column4
             // 
-            Column4.HeaderText = "Contact";
+            Column4.HeaderText = "CNIC";
             Column4.MinimumWidth = 8;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
@@ -291,7 +291,7 @@
             // 
             // Column5
             // 
-            Column5.HeaderText = "Address";
+            Column5.HeaderText = "Email";
             Column5.MinimumWidth = 8;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
@@ -314,9 +314,9 @@
             Controls.Add(AddressText);
             Controls.Add(ContactText);
             Controls.Add(ageText);
-            Controls.Add(Age);
             Controls.Add(Contact);
-            Controls.Add(Address);
+            Controls.Add(CNIC);
+            Controls.Add(Email);
             Controls.Add(CustomerName);
             Controls.Add(Title);
             Name = "CustomerUI";
@@ -331,9 +331,9 @@
 
         private TextBox Title;
         private Label CustomerName;
-        private Label Address;
+        private Label Email;
+        private Label CNIC;
         private Label Contact;
-        private Label Age;
         private TextBox ageText;
         private TextBox ContactText;
         private TextBox AddressText;

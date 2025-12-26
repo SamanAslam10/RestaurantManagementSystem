@@ -25,33 +25,5 @@ namespace v._3._0.Customer
         {
             return repoDB.GetAll();
         }
-
-
-        // Advance Features 
-        public List<CustomerModel> SearchByFirstCharacter(string character)
-        {
-            List<CustomerModel> customerslist = repoDB.GetAll();
-            return customerslist;
-        }
-        public CustomerModel SearchByPhoneNumber(string phone)
-        {
-            CustomerModel customer = repoDB.GetByPhone(phone);
-            return customer;
-        }
-        public List<CustomerModel> SearchByAddress(string address)
-        {
-            List<CustomerModel> customerByAddress = repoDB.GetByAddress(address);
-            return customerByAddress;
-        }
-        public List<CustomerModel> SearchByAge(int age)
-        {
-            List<CustomerModel> customerByAge = repoDB.GetByAge(age);
-            return customerByAge;
-        }
-        public List<CustomerModel> SearchByName(string name)
-        {
-            List<CustomerModel> customerByName = repoDB.GetByName(name);
-            return customerByName;
-        }
     }
 }

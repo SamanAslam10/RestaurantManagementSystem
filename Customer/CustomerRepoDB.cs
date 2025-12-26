@@ -16,14 +16,14 @@ namespace v._3._0.Customer
             {
                 conn.Open();
                 string query = "INSERT INTO Customer (CustomerId,Name,Contact,CNIC,Email)" +
-                                " VALUES (@Id,@Name, @Age, @PhoneNumber, @Address)";
+                                " VALUES (@CustomerId,@Name, @Contact, @CNIC, @Email)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Id",customer.Id);
+                cmd.Parameters.AddWithValue("@CustomerId", customer.Id);
                 cmd.Parameters.AddWithValue("@Name", customer.name);
-                cmd.Parameters.AddWithValue("@Age", customer.age);
-                cmd.Parameters.AddWithValue("@PhoneNumber", customer.phoneNumber);
-                cmd.Parameters.AddWithValue("@Address", customer.address);
+                cmd.Parameters.AddWithValue("@Contact", customer.contact);
+                cmd.Parameters.AddWithValue("@CNIC", customer.CNIC);
+                cmd.Parameters.AddWithValue("@Email", customer.email);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
@@ -42,19 +42,19 @@ namespace v._3._0.Customer
             using (SqlConnection conn = new SqlConnection(DbConnection))
             {
                 conn.Open();
-                string query = "SELECT CustomerID,Name,Age,PhoneNumber,Address FROM Customer";
+                string query = "SELECT CustomerId,Name,Contact,CNIC,Email FROM Customer";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    int id = Convert.ToInt32(reader["CustomerID"]);
+                    int id = Convert.ToInt32(reader["CustomerId"]);
                     string name = Convert.ToString(reader["Name"]);
-                    int age = Convert.ToInt32(reader["Age"]);
-                    string PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
-                    string Address = Convert.ToString(reader["Address"]);
+                    string Contact = Convert.ToInt32(reader["Contact"]);
+                    string CNIC = Convert.ToString(reader["CNIC"]);
+                    string Email = Convert.ToString(reader["Email"]);
 
-                    CustomerModel customer = new CustomerModel(id,name, PhoneNumber, age, Address);
+                    CustomerModel customer = new CustomerModel(id, name, Contact, CNIC, Email);
                     customersList.Add(customer);
                 }
                 conn.Close();
@@ -66,7 +66,7 @@ namespace v._3._0.Customer
             using (SqlConnection conn = new SqlConnection(DbConnection))
             {
                 conn.Open();
-                string query = "DELETE FROM Customer WHERE CustomerID=@Id";
+                string query = "DELETE FROM Customer WHERE CustomerId=@Id";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Id", id);
@@ -87,14 +87,14 @@ namespace v._3._0.Customer
             using (SqlConnection conn = new SqlConnection(DbConnection))
             {
                 conn.Open();
-                string query = "UPDATE Customer SET Name=@Name,Age=@Age,PhoneNumber=@PhoneNumber,Address=@Address" +
-                                " WHERE CustomerID=@Id";
+                string query = "UPDATE Customer SET Name=@Name,Contact=@Contact,CNIC=@CNIC,Email=@Email" +
+                                " WHERE CustomerId=@Id";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Id",customer.Id);
+                cmd.Parameters.AddWithValue("@Id", customer.Id);
                 cmd.Parameters.AddWithValue("@Name", customer.name);
-                cmd.Parameters.AddWithValue("@Age", customer.age);
-                cmd.Parameters.AddWithValue("@PhoneNumber", customer.phoneNumber);
-                cmd.Parameters.AddWithValue("@Address", customer.address);
+                cmd.Parameters.AddWithValue("@Contact", customer.contact);
+                cmd.Parameters.AddWithValue("@CNIC", customer.CNIC);
+                cmd.Parameters.AddWithValue("@Email", customer.email);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
@@ -106,131 +106,6 @@ namespace v._3._0.Customer
                     return false;
                 }
             }
-        }
-        public List<CustomerModel> GetByAge(int ageSearch)
-        {
-            List<CustomerModel> customersList = new List<CustomerModel>();
-            using (SqlConnection conn = new SqlConnection(DbConnection))
-            {
-                conn.Open();
-                string query = "SELECT CustomerID,Name,Age,PhoneNumber,Address FROM Customer WHERE Age=@Age";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Age", ageSearch);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    int id = Convert.ToInt32(reader["CustomerID"]);
-                    string name = Convert.ToString(reader["Name"]);
-                    int age = Convert.ToInt32(reader["Age"]);
-                    string PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
-                    string Address = Convert.ToString(reader["Address"]);
-
-                    CustomerModel customer = new CustomerModel(id,name, PhoneNumber, age, Address);
-                    customersList.Add(customer);
-                }
-                conn.Close();
-            }
-            return customersList;
-        }
-        public List<CustomerModel> GetByName(string nameSearch)
-        {
-            List<CustomerModel> customersList = new List<CustomerModel>();
-            using (SqlConnection conn = new SqlConnection(DbConnection))
-            {
-                conn.Open();
-                string query = "SELECT CustomerID,Name,Age,PhoneNumber,Address FROM Customer WHERE Name=@Name";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Name", nameSearch);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    int id = Convert.ToInt32(reader["CustomerID"]);
-                    string name = Convert.ToString(reader["Name"]);
-                    int age = Convert.ToInt32(reader["Age"]);
-                    string PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
-                    string Address = Convert.ToString(reader["Address"]);
-
-                    CustomerModel customer = new CustomerModel(id,name, PhoneNumber, age, Address);
-                    customersList.Add(customer);
-                }
-                conn.Close();
-            }
-            return customersList;
-        }
-        public List<CustomerModel> GetByAddress(string AddressSearch)
-        {
-            List<CustomerModel> customersList = new List<CustomerModel>();
-            using (SqlConnection conn = new SqlConnection(DbConnection))
-            {
-                conn.Open();
-                string query = "SELECT CustomerID,Name,Age,PhoneNumber,Adress FROM Customer WHERE Address=@Address";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Address", AddressSearch);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    int id = Convert.ToInt32(reader["CustomerID"]);
-                    string name = Convert.ToString(reader["Name"]);
-                    int age = Convert.ToInt32(reader["Age"]);
-                    string PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
-                    string Address = Convert.ToString(reader["Address"]);
-
-                    CustomerModel customer = new CustomerModel(id,name, PhoneNumber, age, Address);
-                    customersList.Add(customer);
-                }
-                conn.Close();
-            }
-            return customersList;
-        }
-        public CustomerModel GetByPhone(string phoneSearch)
-        {
-            CustomerModel customerModel = new CustomerModel();
-            using (SqlConnection conn = new SqlConnection(DbConnection))
-            {
-                conn.Open();
-                string query = "SELECT CustomerID,Name,Age,PhoneNumber,Address FROM Customer WHERE PhoneNumber=@PhoneNumber";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneSearch);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    int id = Convert.ToInt32(reader["CustomerID"]);
-                    string name = Convert.ToString(reader["Name"]);
-                    int age = Convert.ToInt32(reader["Age"]);
-                    string PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
-                    string Address = Convert.ToString(reader["Address"]);
-
-                    CustomerModel customer = new CustomerModel(id,name, PhoneNumber, age, Address);
-                    customerModel = customer;
-                }
-                conn.Close();
-            }
-            return customerModel;
-        }
-        public List<CustomerModel> GetByFirstChar(string firstChar)
-        {
-            List<CustomerModel> customersList = new List<CustomerModel>();
-            using (SqlConnection conn = new SqlConnection(DbConnection))
-            {
-                conn.Open();
-                string query = "SELECT CustomerID,Name,Age,PhoneNumber,Address FROM Customer WHERE Name LIKE @firstchar";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@firstchar", firstChar + "%");
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    int id = Convert.ToInt32(reader["CustomerID"]);
-                    string name = Convert.ToString(reader["Name"]);
-                    int age = Convert.ToInt32(reader["Age"]);
-                    string PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
-                    string Address = Convert.ToString(reader["Address"]);
-
-                    CustomerModel customer = new CustomerModel(id,name, PhoneNumber, age, Address);
-                    customersList.Add(customer);
-                }
-                conn.Close();
-            }
-            return customersList;
         }
     }
 }
