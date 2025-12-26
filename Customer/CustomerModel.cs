@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace v._3._0.Customer
+namespace RMS.Customer
 {
     internal class CustomerModel
     {

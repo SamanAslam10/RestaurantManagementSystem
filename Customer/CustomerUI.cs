@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace v._3._0.Customer
+namespace RMS.Customer
 {
     public partial class CustomerUI : Form
     {
@@ -29,12 +29,12 @@ namespace v._3._0.Customer
             List<CustomerModel> customers = _service.GetAllData();
             foreach (CustomerModel customer in customers)
             {
-                CustomerDataGrid.Rows.Add(customer.Id,customer.name , customer.age , customer.phoneNumber , customer.address);
+                CustomerDataGrid.Rows.Add(customer.Id,customer.name , customer.contact , customer.CNIC , customer.email);
             }
         }
         private void Add_Click(object sender, EventArgs e)
         {
-            if (NameText.Text == null || ageText.Text == null || ContactText.Text == null || AddressText.Text == null)
+            if (NameText.Text == null || ContactText.Text == null || CNICText.Text == null || EmailText.Text == null)
             {
                 return;
             }
@@ -42,11 +42,11 @@ namespace v._3._0.Customer
             {
                 int id = int.Parse(Idtext.Text);
                 string name = NameText.Text;
-                int age = int.Parse(ageText.Text);
                 string contact = ContactText.Text;
-                string address = AddressText.Text;
+                string cnic = CNICText.Text;
+                string email = EmailText.Text;
 
-                CustomerModel customer = new CustomerModel(id, name, contact, age, address);
+                CustomerModel customer = new CustomerModel(id, name, contact, cnic, email);
                 _service.AddCustomer(customer);
 
                 LoadCustomers();
@@ -55,7 +55,7 @@ namespace v._3._0.Customer
 
         private void Update_Click(object sender, EventArgs e)
         {
-            if (NameText.Text == null || ageText.Text == null || ContactText.Text == null || AddressText.Text == null)
+            if (NameText.Text == null || ContactText.Text == null || CNICText.Text == null || EmailText.Text == null)
             {
                 return;
             }
@@ -63,11 +63,11 @@ namespace v._3._0.Customer
             {
                 int id = int.Parse(Idtext.Text);
                 string name = NameText.Text;
-                int age = int.Parse(ageText.Text);
                 string contact = ContactText.Text;
-                string address = AddressText.Text;
+                string cnic = CNICText.Text;
+                string email = EmailText.Text;
 
-                CustomerModel customer = new CustomerModel(id, name, contact, age, address);
+                CustomerModel customer = new CustomerModel(id, name, contact, cnic, email);
                 _service.UpdateCustomer(customer);
 
                 LoadCustomers();
@@ -142,7 +142,7 @@ namespace v._3._0.Customer
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ageText.Focus();
+                ContactText.Focus();
             }
         }
 
@@ -150,7 +150,7 @@ namespace v._3._0.Customer
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ContactText.Focus();
+                CNICText.Focus();
             }
         }
 
@@ -158,7 +158,7 @@ namespace v._3._0.Customer
         {
             if (e.KeyCode == Keys.Enter) 
             {
-                AddressText.Focus();
+                EmailText.Focus();
             }
         }
 

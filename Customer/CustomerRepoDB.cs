@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
-namespace v._3._0.Customer
+namespace RMS.Customer
 {
     internal class CustomerRepoDB
     {

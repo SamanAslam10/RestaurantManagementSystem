@@ -1,4 +1,4 @@
-﻿namespace v._3._0.Customer
+﻿namespace RMS.Customer
 {
     partial class CustomerUI
     {
@@ -33,22 +33,22 @@
             Email = new Label();
             CNIC = new Label();
             Contact = new Label();
-            ageText = new TextBox();
             ContactText = new TextBox();
-            AddressText = new TextBox();
+            CNICText = new TextBox();
+            EmailText = new TextBox();
             NameText = new TextBox();
             Back = new Button();
             Delete = new Button();
             Update = new Button();
             Add = new Button();
             CustomerDataGrid = new DataGridView();
-            CustomerID = new Label();
-            Idtext = new TextBox();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            CustomerID = new Label();
+            Idtext = new TextBox();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGrid).BeginInit();
             SuspendLayout();
             // 
@@ -112,46 +112,46 @@
             Contact.TabIndex = 6;
             Contact.Text = "Contact ";
             // 
-            // ageText
-            // 
-            ageText.AccessibleName = "";
-            ageText.BackColor = Color.MistyRose;
-            ageText.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ageText.ForeColor = Color.PaleVioletRed;
-            ageText.Location = new Point(186, 347);
-            ageText.Name = "ageText";
-            ageText.Size = new Size(240, 35);
-            ageText.TabIndex = 12;
-            ageText.TextChanged += ageText_TextChanged;
-            ageText.Enter += ageText_Enter;
-            ageText.KeyUp += ageText_KeyUp;
-            // 
             // ContactText
             // 
-            ContactText.AccessibleName = "NameTextBox";
+            ContactText.AccessibleName = "";
             ContactText.BackColor = Color.MistyRose;
             ContactText.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ContactText.ForeColor = Color.PaleVioletRed;
-            ContactText.Location = new Point(186, 401);
+            ContactText.Location = new Point(186, 347);
             ContactText.Name = "ContactText";
             ContactText.Size = new Size(240, 35);
-            ContactText.TabIndex = 13;
-            ContactText.TextChanged += ContactText_TextChanged;
-            ContactText.Enter += ContactText_Enter;
-            ContactText.KeyUp += ContactText_KeyUp;
+            ContactText.TabIndex = 12;
+            ContactText.TextChanged += ageText_TextChanged;
+            ContactText.Enter += ageText_Enter;
+            ContactText.KeyUp += ageText_KeyUp;
             // 
-            // AddressText
+            // CNICText
             // 
-            AddressText.AccessibleName = "NameTextBox";
-            AddressText.BackColor = Color.MistyRose;
-            AddressText.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddressText.ForeColor = Color.PaleVioletRed;
-            AddressText.Location = new Point(186, 464);
-            AddressText.Name = "AddressText";
-            AddressText.Size = new Size(240, 35);
-            AddressText.TabIndex = 14;
-            AddressText.Enter += AddressText_Enter;
-            AddressText.KeyUp += AddressText_KeyUp;
+            CNICText.AccessibleName = "NameTextBox";
+            CNICText.BackColor = Color.MistyRose;
+            CNICText.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CNICText.ForeColor = Color.PaleVioletRed;
+            CNICText.Location = new Point(186, 401);
+            CNICText.Name = "CNICText";
+            CNICText.Size = new Size(240, 35);
+            CNICText.TabIndex = 13;
+            CNICText.TextChanged += ContactText_TextChanged;
+            CNICText.Enter += ContactText_Enter;
+            CNICText.KeyUp += ContactText_KeyUp;
+            // 
+            // EmailText
+            // 
+            EmailText.AccessibleName = "NameTextBox";
+            EmailText.BackColor = Color.MistyRose;
+            EmailText.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            EmailText.ForeColor = Color.PaleVioletRed;
+            EmailText.Location = new Point(186, 464);
+            EmailText.Name = "EmailText";
+            EmailText.Size = new Size(240, 35);
+            EmailText.TabIndex = 14;
+            EmailText.Enter += AddressText_Enter;
+            EmailText.KeyUp += AddressText_KeyUp;
             // 
             // NameText
             // 
@@ -232,31 +232,6 @@
             CustomerDataGrid.Size = new Size(752, 242);
             CustomerDataGrid.TabIndex = 21;
             // 
-            // CustomerID
-            // 
-            CustomerID.AutoSize = true;
-            CustomerID.BackColor = Color.PaleVioletRed;
-            CustomerID.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            CustomerID.ForeColor = Color.MistyRose;
-            CustomerID.Location = new Point(36, 240);
-            CustomerID.Name = "CustomerID";
-            CustomerID.Size = new Size(109, 32);
-            CustomerID.TabIndex = 22;
-            CustomerID.Text = "   ID      ";
-            // 
-            // Idtext
-            // 
-            Idtext.AccessibleName = "NameTextBox";
-            Idtext.BackColor = Color.MistyRose;
-            Idtext.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Idtext.ForeColor = Color.PaleVioletRed;
-            Idtext.Location = new Point(186, 240);
-            Idtext.Name = "Idtext";
-            Idtext.Size = new Size(240, 35);
-            Idtext.TabIndex = 23;
-            Idtext.TextChanged += Idtext_TextChanged;
-            Idtext.KeyUp += Idtext_KeyUp;
-            // 
             // Column1
             // 
             Column1.HeaderText = "ID";
@@ -297,6 +272,31 @@
             Column5.ReadOnly = true;
             Column5.Width = 150;
             // 
+            // CustomerID
+            // 
+            CustomerID.AutoSize = true;
+            CustomerID.BackColor = Color.PaleVioletRed;
+            CustomerID.Font = new Font("Georgia", 14F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            CustomerID.ForeColor = Color.MistyRose;
+            CustomerID.Location = new Point(36, 240);
+            CustomerID.Name = "CustomerID";
+            CustomerID.Size = new Size(109, 32);
+            CustomerID.TabIndex = 22;
+            CustomerID.Text = "   ID      ";
+            // 
+            // Idtext
+            // 
+            Idtext.AccessibleName = "NameTextBox";
+            Idtext.BackColor = Color.MistyRose;
+            Idtext.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Idtext.ForeColor = Color.PaleVioletRed;
+            Idtext.Location = new Point(186, 240);
+            Idtext.Name = "Idtext";
+            Idtext.Size = new Size(240, 35);
+            Idtext.TabIndex = 23;
+            Idtext.TextChanged += Idtext_TextChanged;
+            Idtext.KeyUp += Idtext_KeyUp;
+            // 
             // CustomerUI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -311,9 +311,9 @@
             Controls.Add(Delete);
             Controls.Add(Back);
             Controls.Add(NameText);
-            Controls.Add(AddressText);
+            Controls.Add(EmailText);
+            Controls.Add(CNICText);
             Controls.Add(ContactText);
-            Controls.Add(ageText);
             Controls.Add(Contact);
             Controls.Add(CNIC);
             Controls.Add(Email);
@@ -334,9 +334,9 @@
         private Label Email;
         private Label CNIC;
         private Label Contact;
-        private TextBox ageText;
         private TextBox ContactText;
-        private TextBox AddressText;
+        private TextBox CNICText;
+        private TextBox EmailText;
         private TextBox NameText;
         private Button Back;
         private Button Delete;
