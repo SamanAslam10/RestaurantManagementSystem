@@ -38,7 +38,6 @@ namespace RMS.Employee
             this.status = status;
             this.Salary = salary;
 
-        }
-        
+        } 
     }
 }

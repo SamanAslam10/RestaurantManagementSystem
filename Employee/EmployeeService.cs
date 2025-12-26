@@ -12,7 +12,7 @@ namespace RMS.Employee
     {
         private EmployeeRepoDB repoDB = new EmployeeRepoDB();
 
-        public void AddEMployee(EmployeeModel employee)
+        public void AddEmployee(EmployeeModel employee)
         {
             repoDB.Create(employee);
         }
@@ -20,7 +20,7 @@ namespace RMS.Employee
         {
             repoDB.Update(employee);
         }
-        public void DeleteEMployee(int id)
+        public void DeleteEmployee(int id)
         {
             repoDB.Delete(id);
         }

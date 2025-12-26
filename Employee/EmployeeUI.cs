@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace v._3._0.Product
+namespace RMS.Employee
 {
     public partial class EmployeeUI : Form
     {
@@ -16,7 +16,7 @@ namespace v._3._0.Product
         public EmployeeUI()
         {
             InitializeComponent();
-            LoadProducts();
+            LoadEmployee();
         }
 
         private void ProductMenu_Load(object sender, EventArgs e)
@@ -32,29 +32,39 @@ namespace v._3._0.Product
         {
 
         }
-        private void LoadProducts()
+        private void LoadEmployee()
         {
-            List<EmployeeModel> products = _service.GetAllData();
-            foreach (EmployeeModel product in products)
+            List<EmployeeModel> employee = _service.GetAllData();
+            foreach (EmployeeModel e in employee )
             {
-                ProductDataGrid.Rows.Add(product.Id, product.name,product.purchasePrice, product.salePrice, product.discount);
+                EmployeeDataGrid.Rows.Add(e.Id , e.First_Name , e.Last_Name , e.CNIC , e.phone , e.email , e.address , e.HireDate , e.RoleId , e.Salary , e.status , e.Role );
             }
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            if (nameTextBox.Text == null || PurchasePriceTextBox.Text == null || SalePriceTextBox.Text == null || DiscountTextBox.Text == null) return;
+            if (nameTextBox.Text == null || lnameTextBox.Text == null || phoneTextBox.Text == null || cnicTextBox.Text == null)
+            {
+                return;
+            }
             else
             {
                 int id = int.Parse(IDtext.Text);
-                string name = nameTextBox.Text;
-                float purchasePrice = float.Parse(PurchasePriceTextBox.Text);
-                float salePrice = float.Parse(SalePriceTextBox.Text);
-                int discount = int.Parse(DiscountTextBox.Text);
+                string fname = nameTextBox.Text;
+                string lname = lnameTextBox.Text;
+                string cnic = cnicTextBox.Text;
+                string phone = phoneTextBox.Text;
+                string email = textBox12.Text;
+                string address = textBox11.Text;
+                string hireDate = textBox10.Text;
+                int roleId = int.Parse(textBox9.Text);
+                float salary = float.Parse(textBox7.Text);
+                string status = textBox6.Text;
+                string role = textBox8.Text;
 
-                EmployeeModel product = new EmployeeModel(id, name, purchasePrice, salePrice, discount);
-                _service.AddProduct(product);
+                EmployeeModel employee = new EmployeeModel(id, fname,lname , cnic , phone , email , address , hireDate , roleId , role , status , salary);
+                _service.AddEmployee(employee);
 
-                LoadProducts();
+                LoadEmployee();
             }
         }
 
@@ -65,28 +75,28 @@ namespace v._3._0.Product
             {
                 int id = int.Parse(IDtext.Text);
                 string name = nameTextBox.Text;
-                float purchasePrice = float.Parse(PurchasePriceTextBox.Text);
-                float salePrice = float.Parse(SalePriceTextBox.Text);
-                int discount = int.Parse(DiscountTextBox.Text);
+                float purchasePrice = float.Parse(lnameTextBox.Text);
+                float salePrice = float.Parse(phoneTextBox.Text);
+                int discount = int.Parse(cnicTextBox.Text);
 
-                EmployeeModel product = new EmployeeModel(id, name, purchasePrice, salePrice, discount);
-                _service.UpdateProduct(product);
+                EmployeeModel employee = new EmployeeModel();
+                _service.UpdateEmployee(employee);
 
-                LoadProducts();
+                LoadEmployee();
             }
         }
 
         private void DeleteProduct_Click(object sender, EventArgs e)
         {
             int id = int.Parse(IDtext.Text);
-            _service.DeleteProduct(id);
+            _service.DeleteEmployee(id);
 
-            LoadProducts();
+            LoadEmployee();
         }
 
         private void ViewAllProducts_Click(object sender, EventArgs e)
         {
-            LoadProducts();
+            LoadEmployee();
         }
 
         private void BackToMain_Click(object sender, EventArgs e)
@@ -126,7 +136,7 @@ namespace v._3._0.Product
         {
             if (e.KeyCode == Keys.Enter)
             {
-                PurchasePriceTextBox.Focus();
+                lnameTextBox.Focus();
             }
         }
 
@@ -134,7 +144,7 @@ namespace v._3._0.Product
         {
             if (e.KeyCode == Keys.Enter)
             {
-                SalePriceTextBox.Focus();
+                phoneTextBox.Focus();
             }
         }
 
@@ -142,7 +152,7 @@ namespace v._3._0.Product
         {
             if (e.KeyCode == Keys.Enter)
             {
-                DiscountTextBox.Focus();
+                cnicTextBox.Focus();
             }
         }
 
