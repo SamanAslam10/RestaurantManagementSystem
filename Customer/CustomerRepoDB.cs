@@ -50,7 +50,7 @@ namespace RMS.Customer
                 {
                     int id = Convert.ToInt32(reader["CustomerId"]);
                     string name = Convert.ToString(reader["Name"]);
-                    string Contact = Convert.ToInt32(reader["Contact"]);
+                    string Contact = Convert.ToString(reader["Contact"]);
                     string CNIC = Convert.ToString(reader["CNIC"]);
                     string Email = Convert.ToString(reader["Email"]);
 
