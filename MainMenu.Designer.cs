@@ -1,4 +1,4 @@
-﻿namespace v._3._0
+﻿namespace RMS
 {
     partial class MainMenu
     {
@@ -118,43 +118,7 @@
             Exit.UseVisualStyleBackColor = false;
             Exit.Click += Exit_Click;
             // 
-            // AdvanceMenu
-            // 
-            AdvanceMenu.AutoSize = true;
-            AdvanceMenu.Font = new Font("Rage Italic", 32F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AdvanceMenu.ForeColor = Color.PaleVioletRed;
-            AdvanceMenu.Location = new Point(873, 194);
-            AdvanceMenu.Name = "AdvanceMenu";
-            AdvanceMenu.Size = new Size(387, 80);
-            AdvanceMenu.TabIndex = 8;
-            AdvanceMenu.Text = "Advance Menu";
-            // 
-            // AdvanceProduct
-            // 
-            AdvanceProduct.BackColor = Color.PaleVioletRed;
-            AdvanceProduct.Font = new Font("Georgia", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AdvanceProduct.ForeColor = Color.MistyRose;
-            AdvanceProduct.Location = new Point(953, 292);
-            AdvanceProduct.Name = "AdvanceProduct";
-            AdvanceProduct.Size = new Size(195, 68);
-            AdvanceProduct.TabIndex = 9;
-            AdvanceProduct.Text = "Product";
-            AdvanceProduct.UseVisualStyleBackColor = false;
-            AdvanceProduct.Click += AdvanceProduct_Click;
-            // 
-            // AdvanceCustomer
-            // 
-            AdvanceCustomer.BackColor = Color.PaleVioletRed;
-            AdvanceCustomer.Font = new Font("Georgia", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AdvanceCustomer.ForeColor = Color.MistyRose;
-            AdvanceCustomer.Location = new Point(953, 392);
-            AdvanceCustomer.Name = "AdvanceCustomer";
-            AdvanceCustomer.Size = new Size(195, 69);
-            AdvanceCustomer.TabIndex = 10;
-            AdvanceCustomer.Text = "Customer";
-            AdvanceCustomer.UseVisualStyleBackColor = false;
-            AdvanceCustomer.Click += AdvanceCustomer_Click;
-            // 
+            
             // Mainpanel
             // 
             Mainpanel.Controls.Add(OrderHistory);
