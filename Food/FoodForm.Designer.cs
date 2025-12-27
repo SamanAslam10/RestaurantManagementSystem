@@ -40,6 +40,7 @@
             txtName = new TextBox();
             txtPrice = new TextBox();
             txtType = new TextBox();
+            BackToMain = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFood).BeginInit();
             SuspendLayout();
             // 
@@ -143,11 +144,23 @@
             txtType.Size = new Size(150, 31);
             txtType.TabIndex = 12;
             // 
+            // BackToMain
+            // 
+            BackToMain.Font = new Font("Georgia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BackToMain.Location = new Point(815, 545);
+            BackToMain.Name = "BackToMain";
+            BackToMain.Size = new Size(112, 34);
+            BackToMain.TabIndex = 16;
+            BackToMain.Text = "Back";
+            BackToMain.UseVisualStyleBackColor = true;
+            BackToMain.Click += BackToMain_Click;
+            // 
             // FoodForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(973, 608);
+            ClientSize = new Size(973, 605);
+            Controls.Add(BackToMain);
             Controls.Add(txtType);
             Controls.Add(txtPrice);
             Controls.Add(txtName);
@@ -181,5 +194,6 @@
         private TextBox txtName;
         private TextBox txtPrice;
         private TextBox txtType;
+        private Button BackToMain;
     }
 }

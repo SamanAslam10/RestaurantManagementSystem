@@ -55,5 +55,9 @@ namespace RMS.Food
             service.DeleteFood(int.Parse(txtId.Text));
             LoadFood();
         }
+private void BackToMain_Click(object sender, EventArgs e)
+        {
+            FormHelper.PopulateScreen(new MainMenu());
+        }
     }
 }
